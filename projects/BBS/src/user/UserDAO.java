@@ -11,16 +11,20 @@ import java.sql.ResultSet;
 public class UserDAO {
 
 	private Connection conn; //데이터베이스에 접근해주는 객체
-	private PreparedStatement pstmt;
+	private PreparedStatement pstmt; //해킹 방지
 	private ResultSet rs; //어떤한 정보를 담을수 있는 개체
 
-	public UserDAO() { //실제 MYSQL에 접속하게 해주는 부분
+	public UserDAO() { //실제 MYSQL에 접속하게 해주는 부분 (데이터 접근 객체)
 		 try {
+			 /*
 			 String dbURL = "jdbc:mysql://localhost:3306/BBS";
+			 -> 아래와 같이 바꾸면 에러 해결됨 이유는 모르겠다.
+			 */
+			 String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
 			 //3306은 PC에 설치된 MYSQL 서버 번호
 			 String dbID ="root";
 			 String dbPassword = "taeyoon!";
-			 Class.forName("com.mysql.jdbc,Driver");
+			 Class.forName("com.mysql.jdbc.Driver");
 			 conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		 } catch(Exception e) {
 			 e.printStackTrace();//오류 발생할 경우 오류 출력
@@ -45,5 +49,24 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 		return -2;//데이터 베이스 오류 의미
+	}
+	
+	public int join(User user){ //user클래스 이용
+		String SQL = "INSERT INTO USER VALUES (?,?,?,?,?)";
+		try {
+			pstmt=conn.prepareStatement(SQL);
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(3, user.getUserName());
+			pstmt.setString(4, user.getUserGender());
+			pstmt.setString(5, user.getUserEmail());
+			return pstmt.executeUpdate(); //insert문장을 실행하는경우 0이상의 숫자가 반환 -> 성공적으로 회원가입됨(-1 아닌경우)
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+		
+				
+		
 	}
 }
