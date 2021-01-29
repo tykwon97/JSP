@@ -12,16 +12,6 @@
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>JSP 게시판 웹 사이트</title>
-<style type="text/css">
-	/*
-		하이퍼링크 색깔 밑줄 제거
-	*/
-	a, a:hover {
-		color:#000000;
-		text-decoration : none;
-	}
-	
-</style>
 </head>
 <body>
 	<%
@@ -117,16 +107,13 @@
 				</tbody>
 			</table> 
 			<%
-			/*
-				이전 다음 버튼 추가
-			*/
 				if(pageNumber != 1) {
 			%>
-				<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-success btn-arraw-left">이전</a>
+				<a href="bbs.jsp?pageNumber=<%=pageNumber - 1%>" class="btn btn-sucess btn-arraw-left">이전</a>
 			<%
 				} if(bbsDAO.nextPage(pageNumber + 1)){ //다음페이지가 존재하는 경우
 			%>
-				<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn-success btn-arraw-left">다음</a>
+				<a href="bbs.jsp?pageNumber=<%=pageNumber + 1%>" class="btn btn-sucess btn-arraw-left">다음</a>
 			<%		
 				}
 			%>

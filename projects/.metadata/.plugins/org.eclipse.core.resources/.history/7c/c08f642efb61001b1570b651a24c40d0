@@ -76,7 +76,7 @@ public class BbsDAO {
 	}
 	
 	public ArrayList<Bbs> getList(int pageNumber){
-		String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10"; 
+		String SQL = "SELECT FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10"; 
 		ArrayList<Bbs> list = new ArrayList<Bbs>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL); //현재 연결된 객체를 통해 SQL문장을 실행 준비 단계로 만들어준다.
@@ -99,7 +99,7 @@ public class BbsDAO {
 	}
 	
 	public boolean nextPage(int pageNumber) { //page처리를 위함
-		String SQL = "SELECT * FROM BBS WHERE bbsID < ? AND bbsAvailable = 1"; 
+		String SQL = "SELECT FROM BBS WHERE bbsID < ? AND bbsAvailable = 1 ORDER BY bbsID DESC LIMIT 10"; 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL); //현재 연결된 객체를 통해 SQL문장을 실행 준비 단계로 만들어준다.
 			pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);// ?에 들어갈 내용 작성

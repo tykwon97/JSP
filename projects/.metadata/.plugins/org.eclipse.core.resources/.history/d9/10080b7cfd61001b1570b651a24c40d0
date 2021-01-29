@@ -13,10 +13,8 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>JSP 게시판 웹 사이트</title>
 <style type="text/css">
-	/*
-		하이퍼링크 색깔 밑줄 제거
-	*/
 	a, a:hover {
+	<!--하이퍼링크 -->
 		color:#000000;
 		text-decoration : none;
 	}
