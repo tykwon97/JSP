@@ -112,4 +112,53 @@ public class BbsDAO {
 		}
 		return false;
 	}
+	
+	public Bbs getBbs(int bbsID) {
+		String SQL = "SELECT * FROM BBS WHERE bbsID = ?";//특정 번째의 게시글 클릭한경우 
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //현재 연결된 객체를 통해 SQL문장을 실행 준비 단계로 만들어준다.
+			pstmt.setInt(1, bbsID);// ?에 들어갈 내용 작성
+			rs = pstmt.executeQuery(); //실제로 실행했을때 나오는 결과 가져오기
+			if(rs.next()) { //결과가 있는 경우
+				Bbs bbs = new Bbs();
+				bbs.setBbsID(rs.getInt(1));
+				bbs.setBbsTitle(rs.getString(2));
+				bbs.setUserID(rs.getString(3));
+				bbs.setBbsDate(rs.getString(4));
+				bbs.setBbsContent(rs.getString(5));
+				bbs.setBbsAvailable(rs.getInt(6));
+				return bbs;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public int update(int bbsID, String bbsTitle, String bbsContent) {
+		String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?"; 
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //현재 연결된 객체를 통해 SQL문장을 실행 준비 단계로 만들어준다.
+			pstmt.setString(1, bbsTitle);
+			pstmt.setString(2, bbsContent);
+			pstmt.setInt(3, bbsID);
+			//rs = pstmt.executeQuery(); -> executeUpdate()를 사용 
+			return pstmt.executeUpdate(); //성공적으로 수행하는 경우 0이상 리턴
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}
+	
+	public int delete(int bbsID) {
+		String SQL = "UPDATE BBS SET bbsAvailable = 0 WHERE bbsID = ?"; 
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL); //현재 연결된 객체를 통해 SQL문장을 실행 준비 단계로 만들어준다.
+			pstmt.setInt(1, bbsID);
+			return pstmt.executeUpdate(); //성공적으로 수행하는 경우 0이상 리턴
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1; //데이터베이스 오류
+	}
 }

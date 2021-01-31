@@ -13,9 +13,9 @@
 <body>
 	<%
 		String userID = null;
-	if (session.getAttribute("userID") != null) {
-		userID = (String) session.getAttribute("userID");
-	}
+		if (session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
 	%>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">

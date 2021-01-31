@@ -1,0 +1,28 @@
+ String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
+			 //3306은 PC에 설치된 MYSQL 서버 번호
+String dbID ="root";
+ String dbPassword = "taeyoon!";
+
+-> 이 주소도 바꿔주어야한다.
+
+
+create table USER (
+	userID VARCHAR(20),
+    userPassword VARCHAR(20),
+    userName VARCHAR(20),
+    userGender VARCHAR(20),
+    userEmail VARCHAR(50),
+    primary key (userID)
+ );
+
+create table BBS (
+	bbsID int,
+    bbsTitle varchar(50),
+    userID varchar(20),
+    bbsDate datetime,
+    bbsContent varchar(2048),
+    bbsAvailable int,
+    primary key (bbsID) 
+);
+
+SELECT * FROM BBS
