@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="user.UserDAO" %> <!-- UserDAO 불러오기 -->
 <%@ page import="java.io.PrintWriter" %> <!-- 자바스크립트 문장 작성 위해 -->
 <% request.setCharacterEncoding("UTF-8"); %> <!-- 건너 오는 모든 데이터를 UTF-8으로 받는다 -->

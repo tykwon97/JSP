@@ -16,10 +16,10 @@ public class BbsDAO {
 			 /*
 			 String dbURL = "jdbc:mysql://localhost:3306/BBS";
 			 -> 아래와 같이 바꾸면 에러 해결됨 이유는 모르겠다.
-			 -> 외부 DB이용시 바꿔줘야 됨
+			 -> 외부 DB이용시 바꿔줘야 zz됨
 			 */
 			 String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
-			 //3306은 PC에 설치된 MYSQL 서버 번호
+			 //3306은 PC에 설치된 MYSQLz 서버 번호
 			 String dbID ="root";
 			 String dbPassword = "taeyoon!";
 			 Class.forName("com.mysql.jdbc.Driver");

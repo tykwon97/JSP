@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +10,11 @@
 <body>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-			aria-expanded="false">
-			<span calss="icon-bar"></span>
-			<span calss="icon-bar"></span>
-			<span calss="icon-bar"></span>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			<!-- #을 사용해서 이름을 정해준 뒤 후에 id로 사용 -->
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
 		</div>
@@ -26,8 +25,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class = "dropdown">
-					<a href="#" class = "dropdown-toggle" data-toggle = "dropdown" role = "button" aria-haspopup="true" aria-expanded="false">
-					접속하기<span class="caret"></span> <!-- 아이콘 -->
+					<a href="#" class = "dropdown-toggle" data-toggle = "dropdown" role = "button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span> <!-- 아이콘 -->
 					</a>
 					<ul class="dropdown-menu">
 						<li class="active"><a href="login.jsp">로그인</a></li> <!-- class="active" : 현재 선택이 됨 -->
